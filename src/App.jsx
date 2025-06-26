@@ -27,7 +27,7 @@ import './App.css';
 
 function App() {
   return (
-    <Router>
+    <Router basename={window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" ? "/" : "/llm-course-website"}>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/lessons" element={<LessonsPage />} />
@@ -282,13 +282,18 @@ function HomePage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <div className="flex items-center space-x-3 mb-4">
-                <img src={academicLogo} alt="Academic Logo" className="h-8 w-8 rounded-full" />
-                <div className="text-lg font-bold">LLMs From Scratch</div>
+      <Router basename={window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" ? "/" : "/llm-course-website"}>
+        <footer className="bg-gray-900 text-white py-12">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid md:grid-cols-4 gap-8">
+              <div>
+                <div className="flex items-center space-x-3 mb-4">
+                  <img src={academicLogo} alt="Academic Logo" className="h-8 w-8 rounded-full" />
+                  <div className="text-lg font-bold">LLMs From Scratch</div>
+                </div>
+                <p className="text-gray-400">
+                  Learn to build Large Language Models from the ground up with our comprehensive, hands-on course.
+                </p>
               </div>
               <p className="text-gray-400">
                 Learn to build Large Language Models from the ground up with our comprehensive, hands-on course.
